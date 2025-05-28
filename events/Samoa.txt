@@ -4,485 +4,58 @@
 
 add_namespace = samoa
 add_namespace = samoa_coup
-add_namespace = samoa_result
 add_namespace = samoa_smuggle_stuffs
 add_namespace = samoa_fautasi_race
+add_namespace = goodwill_negotiations
+add_namespace = goodwill_outcome
+add_namespace = goodwill_war
 
-country_event = { #Colonial Administration ends
+country_event = { #Tuimaleali'ifano dies... or does he?
 	id = samoa.1
-	title = samoa.1.t	
-	desc = samoa.1.desc	
-	picture = GFX_report_event_MPL_british_departure
-	
-	trigger = {
-	    tag = SAM
-		SAM = {
-		    exists = yes
-			is_subject = no
-			has_government = neutrality
-			has_cosmetic_tag = SAM_TWS
-			OR = { 
-				has_country_leader = {
-					character = SAM_council
-					ruling_only = yes
-				}
-				has_country_leader = {
-					character = SAM_alfred_turnbull
-					ruling_only = yes
-				}
-			}
-		}
-	}
+	title = samoa.1.t
+	desc = samoa.1.desc
+	picture = GFX_report_event_IRQ_ghazi_i_death
 	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
-	option = {  #Democracy
+	option = {
 		name = samoa.1.a
-		retire_country_leader = yes
-		set_politics = {
-			ruling_party = democratic
-			elections_allowed = yes
-			last_election = "1936.1.1"
-			election_frequency = 48
-		}
-		set_party_name = {
-			ideology = neutrality
-			name = SAM_neutrality_party
-		}
-		remove_ideas = SAM_goodwill_mission
-		drop_cosmetic_tag = yes
-	}
-
-	option = { #Monarchy
-		name = samoa.1.b
-		retire_country_leader = yes
-		set_party_name = {
-			ideology = neutrality
-			name = SAM_neutrality_party
-		}
-		if = {
-		    limit = {
-			    date < 1939.7.5
-			}
-			promote_character = {
-				character = SAM_tanumafili_i
-				ideology = constitutional_monarchy
-			}
-		}
-		if = {
-		    limit = {
-			    date > 1939.7.5
-			}
-			promote_character = {
-				character = SAM_tanumafili_ii
-				ideology = constitutional_monarchy
-			}
-		}
-		remove_ideas = SAM_goodwill_mission
-		drop_cosmetic_tag = yes
+		add_stability = -0.05
+		retire_character = SAM_faaoloii_siuaana_i
 	}
 }
 
-country_event = { #Samoa Asks for American Samoa
+country_event = { #Nelson Returns!
 	id = samoa.2
-	title = samoa.2.t	
-	desc = samoa.2.desc	
-	picture = GFX_report_event_generic_sign_treaty1
+	title = samoa.2.t
+	desc = samoa.2.desc
+	picture = GFX_report_event_IRQ_ghazi_i_death
 	
-	is_triggered_only = yes
 	fire_only_once = yes
+	is_triggered_only = yes
 	
-	option = {  #Give in
+	option = {
 		name = samoa.2.a
-		1088 = { transfer_state_to = SAM }
-		SAM = {
-            country_event = { 
-				id = samoa_result.1
-				days = 1
-				random_hours = 12
-				random_days = 1
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = USA_diplomacy_focus
-			}
-			give_military_access = USA
-			USA = {
-				diplomatic_relation = {
-					country = SAM
-					relation = docking_rights
-					active = yes
-				}
-			}
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				add = 50
-				has_opinion = { target = ROOT value > 45 }
-			}
-		}
-	}
-
-	option = { # No
-		name = samoa.2.b
-		SAM = {
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = rejected_demands  
-			}
-			country_event = {
-				id = samoa_result.2
-				days = 1
-				random_hours = 12
-				random_days = 1
-			}
-			set_country_flag = SAM_rejected_american_samoa
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				add = -45
-				has_opinion = { target = ROOT value < 10 }
-			}
-		}
+		add_stability = 0.01
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SAM_olaf_nelson
+		set_country_flag = SAM_nelson_returns
 	}
 }
 
-country_event = { #Samoa Asks for Tuvalu
+country_event = { #Mata'afa dies
 	id = samoa.3
-	title = samoa.3.t	
-	desc = samoa.3.desc	
-	picture = GFX_report_event_generic_sign_treaty1
+	title = samoa.3.t
+	desc = samoa.3.desc
+	picture = GFX_report_event_IRQ_ghazi_i_death
 	
-	is_triggered_only = yes
 	fire_only_once = yes
+	is_triggered_only = yes
 	
-	option = {  #Give in
+	option = {
 		name = samoa.3.a
-		643 = { transfer_state_to = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.1
-				days = 5
-				random_hours = 12
-				random_days = 1
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = large_increase 
-			}
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				add = 50
-				has_opinion = { target = ROOT value > 45 }
-			}
-		}
-	}
-
-	option = { # No
-		name = samoa.3.b
-		643 = { add_claim_by = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.2
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = rejected_demands  
-			}
-		}
-		ai_chance = {
-			base = 45
-			modifier = {
-				add = -45
-				OR = {
-					has_opinion = { target = ROOT value < 10 }
-					has_war_with = ROOT
-				}
-			}
-		}
-	}
-}
-
-country_event = { #Samoa Asks for Tonga
-	id = samoa.4
-	title = samoa.4.t	
-	desc = samoa.4.desc	
-	picture = GFX_report_event_generic_sign_treaty1
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	option = {  #Give in
-		name = samoa.4.a
-		734 = { transfer_state_to = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.1
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = large_increase 
-			}
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				add = 50
-				has_opinion = { target = ROOT value > 45 }
-			}
-		}
-	}
-
-	option = { # No
-		name = samoa.4.b
-		734 = { add_claim_by = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.2
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = rejected_demands  
-			}
-		}
-		ai_chance = {
-			base = 45
-			modifier = {
-				add = -45
-				OR = {
-					has_opinion = { target = ROOT value < 10 }
-					has_war_with = ROOT
-				}
-			}
-		}
-	}
-}
-
-country_event = { #Samoa Asks for Tahiti
-	id = samoa.5
-	title = samoa.5.t	
-	desc = samoa.5.desc	
-	picture = GFX_report_event_generic_sign_treaty1
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	option = {  #Give in
-		name = samoa.5.a
-		641 = { transfer_state_to = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.1
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = large_increase 
-			}
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				add = 50
-				has_opinion = { target = ROOT value > 45 }
-			}
-		}
-	}
-
-	option = { # No
-		name = samoa.5.b
-		641 = { add_claim_by = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.2
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = rejected_demands  
-			}
-		}
-		ai_chance = {
-			base = 45
-			modifier = {
-				add = -45
-				OR = {
-					has_opinion = { target = ROOT value < 10 }
-					has_war_with = ROOT
-				}
-			}
-		}
-	}
-}
-
-country_event = { #Samoa Asks for Fiji
-	id = samoa.6
-	title = samoa.6.t	
-	desc = samoa.6.desc	
-	picture = GFX_report_event_generic_sign_treaty1
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	option = {  #Give in
-		name = samoa.6.a
-		636 = { transfer_state_to = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.1
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = large_increase 
-			}
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				factor = 50
-				has_opinion = { target = ROOT value > 45 }
-			}
-		}
-	}
-
-	option = { # No
-		name = samoa.6.b
-		636 = { add_claim_by = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.2
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = rejected_demands  
-			}
-		}
-		ai_chance = {
-			base = 45
-			modifier = {
-				factor = -45
-				OR = {
-					has_opinion = { target = ROOT value < 10 }
-					has_war_with = ROOT
-				}
-			}
-		}
-	}
-}
-
-country_event = { #Samoa Asks for Hawaii
-	id = samoa.7
-	title = samoa.7.t	
-	desc = samoa.7.desc	
-	picture = GFX_report_event_generic_sign_treaty1
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	option = {  #Give in
-		name = samoa.7.a
-		629 = { transfer_state_to = SAM }
-		630 = { transfer_state_to = SAM }
-		631 = { transfer_state_to = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.1
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = large_increase 
-			}
-		}
-		ai_chance = {
-			base = 50
-			modifier = {
-				factor = 50
-				has_opinion = { target = ROOT value > 45 }
-			}
-		}
-	}
-
-	option = { # No
-		name = samoa.7.b
-		629 = { add_claim_by = SAM }
-		630 = { add_claim_by = SAM }
-		631 = { add_claim_by = SAM }
-		SAM = {
-			country_event = { 
-				id = samoa_result.2
-				days = 5
-				random_hours = 12
-				random_days = 10
-			}
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = rejected_demands  
-			}
-		}
-		ai_chance = {
-			base = 45
-			modifier = {
-				factor = -45
-				OR = {
-					has_opinion = { target = ROOT value < 10 }
-					has_war_with = ROOT
-				}
-			}
-		}
-	}
-}
-
-country_event = { #accepts our demands
-	id = samoa_result.1
-	title = samoa_result.1.t	
-	desc = samoa_result.1.desc	
-	picture = GFX_report_event_france_parade
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	option = {  #Yipee
-		name = samoa_result.1.a
-	}
-}
-
-country_event = { #rejects our demands
-	id = samoa_result.2
-	title = samoa_result.2.t	
-	desc = samoa_result.2.desc	
-	picture = GFX_report_event_generic_sign_treaty2
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	option = {  #Darn it
-		name = samoa_result.2.a
+		retire_character = SAM_mataafa_muliufi
 	}
 }
 
@@ -501,17 +74,25 @@ country_event = { #Tumua and Pule launch coup
 			has_government = communism
 		}
 	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
 	
 	option = {
 		name = samoa_coup.1.a
 		retire_country_leader = yes
+		set_party_name = {
+			ideology = neutrality
+			name = SAM_tumua_and_pule
+		}
 		if = {
 		    limit = {
 				is_in_faction = yes
 			}
 			leave_faction = yes
 		}
-		
+		custom_effect_tooltip = generic_skip_one_line_tt
 		if = {
 			limit = {
 				is_subject = yes
@@ -520,24 +101,18 @@ country_event = { #Tumua and Pule launch coup
 				end_puppet = SAM
 			}
 		}
-		
+		custom_effect_tooltip = generic_skip_one_line_tt
 		set_politics = {
 			ruling_party = neutrality
 			elections_allowed = no
 			last_election = "1936.1.1"
 			election_frequency = 48
 		}
-		
+		custom_effect_tooltip = generic_skip_one_line_tt
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.5
 		}
-		
-		set_party_name = {
-			ideology = neutrality
-			name = SAM_tumua_and_pule
-		}
-		
 		promote_character = {
 			character = SAM_tupua_tamasese
 			ideology = constitutional_monarchy
@@ -547,13 +122,17 @@ country_event = { #Tumua and Pule launch coup
 	option = {
 		name = samoa_coup.1.b
 		retire_country_leader = yes
+		set_party_name = {
+			ideology = neutrality
+			name = SAM_tumua_and_pule
+		}
 		if = {
 		    limit = {
 				is_in_faction = yes
 			}
 			leave_faction = yes
 		}
-		
+		custom_effect_tooltip = generic_skip_one_line_tt
 		if = {
 			limit = {
 				is_subject = yes
@@ -562,24 +141,18 @@ country_event = { #Tumua and Pule launch coup
 				end_puppet = SAM
 			}
 		}
-		
+		custom_effect_tooltip = generic_skip_one_line_tt
 		set_politics = {
 			ruling_party = neutrality
 			elections_allowed = no
 			last_election = "1936.1.1"
 			election_frequency = 48
 		}
-		
+		custom_effect_tooltip = generic_skip_one_line_tt
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.5
 		}
-		
-		set_party_name = {
-			ideology = neutrality
-			name = SAM_tumua_and_pule
-		}
-		
 		promote_character = {
 			character = SAM_mataafa_faumuina_fiame
 			ideology = constitutional_monarchy
@@ -685,7 +258,7 @@ country_event = { #Operational Failure
 	
 	is_triggered_only = yes
 	
-	option = {  #Darn
+	option = { #Darn
 		name = samoa_smuggle_stuffs.6.a
 		add_manpower = -25
 	}
@@ -708,6 +281,844 @@ country_event = { #Fautasi Race every year
 		}
 		hidden_effect = {
 			country_event = { id = samoa_fautasi_race.1 days = 365 }
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - Samoa
+country_event = {
+	id = goodwill_negotiations.1
+	title = goodwill_negotiations.1.t
+	desc = goodwill_negotiations.1.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.1.a
+		add_political_power = 35
+		activate_mission_tooltip = SAM_mission_duration
+		SAM = { 
+			set_country_flag = SAM_goodwill_mission_arrives
+			country_event = {
+				id = goodwill_negotiations.2
+				days = 3
+				random_hours = 12
+				random_days = 5
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - Apointing our own advisors - Samoa
+country_event = {
+	id = goodwill_negotiations.2
+	title = goodwill_negotiations.2.t
+	desc = goodwill_negotiations.2.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.2.a
+		NZL = {
+			country_event = {
+				id = goodwill_negotiations.3
+				days = 5
+				random_hours = 12
+				random_days = 5
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - Samoa asks to be able to appoint its own advisors
+country_event = {
+	id = goodwill_negotiations.3
+	title = goodwill_negotiations.3.t
+	desc = goodwill_negotiations.3.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Accepted Demands
+		name = goodwill_negotiations.3.a
+		custom_effect_tooltip = SAM_this_is_historical_please_follow_if_you_want_to_survive
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SAM = {
+			country_event = {
+				id = goodwill_negotiations.4
+				days = 3
+				random_hours = 12
+				random_days = 5
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_opinion = {
+					target = SAM
+					value > 100
+				}
+				factor = 100
+			}
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 5000
+			}
+		}
+	}
+	
+	option = { #Rejected / Dead
+		name = goodwill_negotiations.3.b
+		SAM = {
+			country_event = {
+				id = goodwill_negotiations.5
+				days = 1
+				random_hours = 12
+				random_days = 1
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_opinion = {
+					target = SAM
+					value > 100
+				}
+				factor = -100
+			}
+			modifier = {
+				is_historical_focus_on = no
+				factor = 5000
+			}
+		}
+	}
+}
+
+#Goodwill Mission - Accepted Yei!
+country_event = {
+	id = goodwill_negotiations.4
+	title = goodwill_negotiations.4.t
+	desc = goodwill_negotiations.4.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.4.a
+		set_country_flag = SAM_we_appoint_our_own_advisors_now
+		custom_effect_tooltip = SAM_increase_high_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		NZL = { #Independence?
+			country_event = {
+				id = goodwill_negotiations.6
+				days = 5
+				random_hours = 12
+				random_days = 5
+			}
+		}
+		hidden_effect = { SAM_mau_influence_high_increase_effect = yes }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - Rejected booo
+country_event = {
+	id = goodwill_negotiations.5
+	title = goodwill_negotiations.5.t
+	desc = goodwill_negotiations.5.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #okai thats enough we declare war
+		name = goodwill_negotiations.5.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - Samoa can into independence?
+country_event = {
+	id = goodwill_negotiations.6
+	title = goodwill_negotiations.6.t
+	desc = goodwill_negotiations.6.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.6.a
+		NZL = {
+			country_event = {
+				id = goodwill_negotiations.7
+				days = 5
+				random_hours = 12
+				random_days = 5
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - CAN Samoa into independence?
+country_event = {
+	id = goodwill_negotiations.7
+	title = goodwill_negotiations.7.t
+	desc = goodwill_negotiations.7.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.7.a #No but it can into self government
+		custom_effect_tooltip = SAM_increase_high_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SAM = { #Self Government
+			country_event = {
+				id = goodwill_negotiations.8
+				days = 1
+				random_hours = 12
+				random_days = 1
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = SAM_this_is_historical_please_follow_if_you_want_to_survive
+		hidden_effect = {
+			SAM_mau_influence_high_increase_effect = yes
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	
+	option = { #Independence!
+		name = goodwill_negotiations.7.b
+		custom_effect_tooltip = SAM_increase_high_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SAM = { #Make sure to reduce the timer here
+			custom_effect_tooltip = generic_skip_one_line_tt
+			country_event = {
+				id = goodwill_negotiations.9
+				days = 1
+				random_hours = 12
+				random_days = 1
+			}
+			hidden_effect = {
+				SAM_mau_influence_high_increase_effect = yes
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = no
+				factor = 50
+			}
+			modifier = {
+				has_opinion = {
+					target = SAM
+					value > 150
+				}
+				factor = 100
+			}
+		}
+	}
+	
+	option = { #Rejected / Dead
+		name = goodwill_negotiations.7.c #If we just dont give them anything maybe they will shut up? spoilers: no
+		custom_effect_tooltip = SAM_increase_extreme_high_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SAM = { #You will die #End mission
+			country_event = {
+				id = goodwill_negotiations.10
+				days = 1
+				random_hours = 12
+				random_days = 1
+			}
+		}
+		hidden_effect = {
+			SAM_mau_influence_high_increase_effect = yes
+			SAM_mau_influence_high_increase_effect = yes
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = no
+				factor = 50
+			}
+			modifier = {
+				has_opinion = {
+					target = SAM
+					value < 0
+				}
+				factor = 100
+			}
+		}
+	}
+}
+
+#Goodwill Mission - Fine, whatever gives us control over the government
+country_event = {
+	id = goodwill_negotiations.8
+	title = goodwill_negotiations.8.t
+	desc = goodwill_negotiations.8.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.8.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - We are SO back
+country_event = {
+	id = goodwill_negotiations.9
+	title = goodwill_negotiations.9.t
+	desc = goodwill_negotiations.9.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.9.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission - You are being sentenced to the samoan jungle
+country_event = {
+	id = goodwill_negotiations.10
+	title = goodwill_negotiations.10.t
+	desc = goodwill_negotiations.10.d
+	picture = GFX_report_event_spanish_parliament
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_negotiations.10.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in compromise - Samoa
+country_event = {
+	id = goodwill_outcome.1
+	title = goodwill_outcome.1.t
+	desc = goodwill_outcome.1.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_outcome.1.a
+		custom_effect_tooltip = SAM_samoa_will_become_puppet_tt
+		hidden_effect = {
+			NZL = {
+				set_autonomy = {
+					target = SAM
+					autonomous_state = autonomy_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			SAM = {
+				add_ideas = SAM_alfred_turnbull
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = SAM_TWS
+				add_opinion_modifier = { target = NZL modifier = goodwill_compromise }
+				swap_ideas = {
+					remove_idea = SAM_collapsed_colonial_authority
+					add_idea = SAM_goodwill_mission_compromise
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.5
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.5
+				}
+				set_party_name = {
+					ideology = neutrality
+					long_name = SAM_neutrality_party_colonial
+					name = SAM_neutrality_party_colonial_short
+				}
+				retire_character = SAM_mau_council
+			}
+			726 = {
+				set_demilitarized_zone = no
+			}
+			set_province_name = { id = 7290 name = "Apia"}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in compromise - New Zealand
+country_event = {
+	id = goodwill_outcome.2
+	title = goodwill_outcome.2.t
+	desc = goodwill_outcome.2.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_outcome.2.a
+		add_political_power = -25
+		add_stability = 0.03
+		custom_effect_tooltip = SAM_samoa_will_become_puppet_tt
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in favour of Samoa - Samoa
+country_event = {
+	id = goodwill_outcome.3
+	title = goodwill_outcome.3.t
+	desc = goodwill_outcome.3.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_outcome.3.a
+		custom_effect_tooltip = SAM_samoa_will_become_protectorate_tt
+		hidden_effect = {
+			NZL = {
+				set_autonomy = {
+					target = SAM
+					autonomous_state = autonomy_protectorate
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			SAM = {
+				add_opinion_modifier = { target = NZL modifier = goodwill_samoa_favored }
+				swap_ideas = {
+					remove_idea = SAM_collapsed_colonial_authority
+					add_idea = SAM_goodwill_mission
+				}
+				drop_cosmetic_tag = yes
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.5
+				}
+				retire_character = SAM_mau_council
+			}
+			726 = {
+				set_demilitarized_zone = no
+			}
+			set_province_name = { id = 7290 name = "Apia"}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in favour of Samoa - New Zealand
+country_event = {
+	id = goodwill_outcome.4
+	title = goodwill_outcome.4.t
+	desc = goodwill_outcome.4.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = goodwill_outcome.4.a
+		add_political_power = 25
+		add_stability = -0.01
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in favour of New Zealand - New Zealand
+country_event = {
+	id = goodwill_outcome.5
+	title = goodwill_outcome.5.t
+	desc = goodwill_outcome.5.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #LES GOOOOOOOOOOOOOOOOOOO
+		name = goodwill_outcome.5.a
+		add_political_power = 35
+		custom_effect_tooltip = SAM_dissatisfaction_with_goodwill_tt
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in favour of New Zealand - Samoa
+country_event = {
+	id = goodwill_outcome.6
+	title = goodwill_outcome.6.t
+	desc = goodwill_outcome.6.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #PISS
+		name = goodwill_outcome.6.a
+		add_war_support = 0.15
+		custom_effect_tooltip = SAM_they_what_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		NZL = {
+			country_event = {
+				id = goodwill_outcome.7
+				days = 7
+				random_hours = 12
+				random_days = 7
+			}
+		}
+		hidden_effect = {
+			swap_ideas = {
+				remove_idea = SAM_collapsed_colonial_authority
+				add_idea = SAM_unorganized_government_in_times_of_crisis
+			}
+			if = {
+				limit = {
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+			
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					end_puppet = SAM
+				}
+			}
+			726 = {
+				set_demilitarized_zone = no
+			}
+			set_province_name = { id = 7290 name = "Apia"}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill Mission concludes in favour of New Zealand - Samoa splits off of NZL
+country_event = {
+	id = goodwill_outcome.7
+	title = goodwill_outcome.7.t
+	desc = goodwill_outcome.7.d
+	picture = GFX_report_event_spanish_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #they wat
+		name = goodwill_outcome.7.a
+		hidden_effect = {
+			USA = { diplomatic_relation = { country = SAM relation = guarantee active = no } }
+			add_named_threat = {
+				threat = 1
+				name = SAM_mau_new_zealand_war_threat
+			}
+		}
+		add_war_support = 0.05
+		add_stability = -0.05
+		custom_effect_tooltip = generic_skip_one_line_tt
+		declare_war_on = {
+			target = SAM
+			type = puppet_wargoal_focus
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SAM = { country_event = goodwill_war.1 }
+		ai_chance = {
+			base = 100
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 5000
+			}
+		}
+	}
+	
+	option = { #idc
+		name = goodwill_outcome.7.b
+		add_war_support = -0.05
+		add_stability = 0.05
+		ai_chance = { 
+			base = 50
+			modifier = {
+				is_historical_focus_on = no
+				factor = 5000
+			}
+		}
+	}
+}
+
+#Goodwill War - New Zealand declares war on Samoa
+country_event = {
+	id = goodwill_war.1
+	title = goodwill_war.1.t
+	desc = goodwill_war.1.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.1.a
+		SAM = {
+			add_ideas = SAM_samoa_arise
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = war_economy
+			set_country_flag = SAM_mau_new_zealand_war
+		}
+		hidden_effect = {
+			NZL = {
+				add_ideas = NZL_unsupported_war
+				set_country_flag = SAM_mau_new_zealand_war
+			}
+			random_owned_controlled_state = {
+				limit = { SAM = { has_full_control_of_state = 726 } }
+				create_unit = {
+					division = "name = \"Mau Men\" division_template = \"Mau Men\" start_experience_factor = 0.8" 
+					owner = SAM
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { SAM = { has_full_control_of_state = 726 } }
+				create_unit = {
+					division = "name = \"Mau Men\" division_template = \"Mau Men\" start_experience_factor = 0.8" 
+					owner = SAM
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill War - USA Intervention in the War
+country_event = {
+	id = goodwill_war.2
+	title = goodwill_war.2.t
+	desc = goodwill_war.2.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.2.a
+		NZL = { country_event = goodwill_war.3 }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill War - Peace
+country_event = {
+	id = goodwill_war.3
+	title = goodwill_war.3.t
+	desc = goodwill_war.3.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.3.a
+		if = {
+			limit = {
+				original_tag = NZL
+				has_war_with = SAM
+			}
+			white_peace = SAM
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill War - Peace because of losses
+country_event = {
+	id = goodwill_war.4
+	title = goodwill_war.4.t
+	desc = goodwill_war.4.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.4.a
+		white_peace = FROM
+		custom_effect_tooltip = generic_skip_one_line_tt
+		country_event = goodwill_war.7
+		FROM = { country_event = goodwill_war.6 }
+		ai_chance = {
+			base = 50
+			modifier = {
+				casualties < 1000
+				factor = 30
+			}
+			modifier = {
+				surrender_progress > 0.1
+				factor = 20
+			}
+		}
+	}
+	
+	option = {
+		name = goodwill_war.4.b
+		FROM = { country_event = goodwill_war.5 }
+		ai_chance = { 
+			base = 50
+			modifier = {
+				casualties > 1000
+				factor = 30
+			}
+			modifier = {
+				surrender_progress < 0.1
+				factor = 20
+			}
+		}
+	}
+}
+
+#Goodwill War - The war continues
+country_event = {
+	id = goodwill_war.5
+	title = goodwill_war.5.t
+	desc = goodwill_war.5.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.5.a
+		set_country_flag = SAM_war_must_continue
+		country_event = goodwill_war.7
+		FROM = { set_country_flag = SAM_war_must_continue }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill War - Peace in our time.. for now.
+country_event = {
+	id = goodwill_war.6
+	title = goodwill_war.6.t
+	desc = goodwill_war.6.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.6.a
+		NZL = { country_event = goodwill_war.7 }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#Goodwill War - Niueans rebel
+country_event = {
+	id = goodwill_war.7
+	title = goodwill_war.7.t
+	desc = goodwill_war.7.d
+	picture = GFX_report_event_spanish_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = goodwill_war.7.a
+		if = {
+			limit = {
+				has_country_flag = SAM_war_must_continue
+			}
+			1089 = {
+				set_demilitarized_zone = yes
+				add_compliance = -35 
+				add_resistance = 25 
+			}
+		}
+		else = {
+			1089 = {
+				add_compliance = -35
+				add_resistance = 25
+			}
+		}
+		ai_chance = {
+			base = 100
 		}
 	}
 }

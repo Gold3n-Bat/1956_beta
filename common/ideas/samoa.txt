@@ -296,5 +296,22 @@ ideas = {
 				consumer_goods_factor = 0.1
 			}
 		}
+		
+		NZL_mau_movement_idea = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				OR = {
+					has_country_flag = SAM_goodwill_mission_arrives
+					NOT = {
+						SAM = { is_subject_of = ROOT }
+					}
+				}
+			}
+			allowed_civil_war = { is_subject = yes }
+			picture = bul_zveno
+			removal_cost = -1
+		}
 	}
 }
