@@ -3330,6 +3330,28 @@ leader_traits = {
 		
 	}
 	
+	SAM_mau_movement_trait = {
+		random = no
+		stability_factor = 0.05
+		political_power_factor = -0.25
+		army_core_defence_factor = 0.1
+		drift_defence_factor = -0.25
+	}
+	
+	SAM_new_zealand_ambassador = {
+		random = no
+		sprite = 13
+
+		stability_factor = 0.05
+		democratic_acceptance = 20
+		neutrality_drift = 0.05
+	}
+	
+	SAM_tuimalealiifano = {
+		random = no
+		sprite = 13
+	}
+	
 ###------> LES <><> <><> <><> <><> <><>
 
 	LES_regency_council_for_king = { #May only be used for Lesotho

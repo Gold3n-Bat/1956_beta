@@ -3642,15 +3642,12 @@ focus_tree = {
 		y = 0
 
         available = {
-		    OR = {
-			    controls_state = 726
-				owns_state = 726
+		    SAM = {
+				is_puppet_of = NZL
+				controls_state = 726
 			}
 		    has_government = democratic
 			has_war = no
-			SAM = {
-				exists = no
-			}
 		}
 		
 		available_if_capitulated = no
@@ -3664,8 +3661,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL  FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			NZL = {
-				country_event = new_zealand.11
+			country_event = new_zealand.11
+			SAM = { country_event =  goodwill_negotiations.1 }
+			
+			hidden_effect = {
+				country_event = r56.news_event.1122
+				SAM = { country_event = r56.news_event.1122 }
 			}
 		}
 	}

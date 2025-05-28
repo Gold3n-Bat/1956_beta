@@ -1,14 +1,16 @@
 state={
 	id=726
 	name="STATE_726"
-	manpower=49997 #Includes Tokelau Population
+	manpower=49997 #Tokelau population included
 	state_category = small_island
 
 	history={
-		owner = NZL
+		owner = SAM
 		add_core_of = SAM
+		set_demilitarized_zone = yes
 		buildings = {
 			infrastructure = 2
+			industrial_complex = 1 #Coffee Factory
 			7290 = {
 				naval_base = 1
 			}
@@ -17,7 +19,7 @@ state={
 			7290 5
 		}
 		victory_points = {
-			13462 2
+			13462 1
 		}
 	}
 	provinces={
