@@ -394,7 +394,7 @@ SAM_new_zealand_reminder_to_do_goodwill = {
 		}
 		
 		cancel_trigger = {
-			has_country_flag = SAM_goodwill_mission_arrives
+			has_completed_focus = NZL_the_goodwill_mission
 		}
 		
 		timeout_effect = {
@@ -422,7 +422,10 @@ SAM_new_zealand_reminder_to_do_goodwill = {
 		visible = {
 			NOT = { has_country_flag = SAM_goodwill_mission_arrives }
 			original_tag = NZL
-			ROOT = { exists = yes has_country_flag = SAM_goodwill_mission_arrives }
+			has_country_flag = NZL_no_goodwill_in_time
+			NZL = { 
+				exists = yes 
+			}
 			SAM = {
 				exists = yes
 				is_subject_of = NZL
@@ -430,11 +433,11 @@ SAM_new_zealand_reminder_to_do_goodwill = {
 		}
 
 		activation = {
-			ROOT = { has_country_flag = SAM_goodwill_mission_arrives }
+			has_country_flag = NZL_no_goodwill_in_time
 		}
 		
 		cancel_trigger = {
-			has_country_flag = SAM_goodwill_mission_arrives
+			has_completed_focus = NZL_the_goodwill_mission
 		}
 		
 		timeout_effect = {
