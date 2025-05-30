@@ -399,7 +399,8 @@ SAM_new_zealand_reminder_to_do_goodwill = {
 		
 		timeout_effect = {
 			custom_effect_tooltip = SAM_samoa_will_be_buffed_in_negotiations
-			set_country_flag = NZL_no_goodwill_in_time #Gives Samoa more influence in negotiations if they ensue
+			set_country_flag = NZL_no_goodwill_in_time
+			SAM = { set_country_flag = NZL_no_goodwill_in_time }
 		}
 	}
 	

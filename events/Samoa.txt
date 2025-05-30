@@ -311,6 +311,14 @@ country_event = {
 				random_days = 5
 			}
 		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = NZL_no_goodwill_in_time
+				}
+				SAM_new_zealand_influence_medium_increase_effect = yes
+			}
+		}
 		ai_chance = {
 			base = 100
 		}

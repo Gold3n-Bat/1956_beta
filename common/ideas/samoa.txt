@@ -298,20 +298,24 @@ ideas = {
 		}
 		
 		NZL_mau_movement_idea = {
+			picture = bul_zveno
+			
 			allowed = {
-				always = no
+				always = yes
 			}
+			
 			cancel = {
 				OR = {
 					has_country_flag = SAM_goodwill_mission_arrives
-					NOT = {
-						SAM = { is_subject_of = ROOT }
-					}
+					SAM = { NOT = { is_subject_of = ROOT } }
 				}
 			}
-			allowed_civil_war = { is_subject = yes }
-			picture = bul_zveno
-			removal_cost = -1
+			
+			allowed_civil_war = { always = no }
+			
+			modifier = {
+				compliance_growth = -0.15
+			}
 		}
 	}
 }
