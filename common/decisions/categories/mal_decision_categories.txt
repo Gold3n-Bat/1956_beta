@@ -23,3 +23,19 @@ mal_independence_decisions = {
         has_country_flag = mal_fascist_denied
     }
 }
+
+r56_malaysia_independence_category = {
+	icon = generic_independence
+	scripted_gui = r56_malaysian_independence_gui
+	
+	allowed = {
+		original_tag = MAL
+	}
+	priority = {
+		base = 250
+	}
+	visible_when_empty = yes
+	visible = {
+		original_tag = MAL
+	}
+}

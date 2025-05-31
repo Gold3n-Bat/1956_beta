@@ -1,0 +1,171 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_perlis"
+		texturefile = "gfx/interface/malaysian_independence/perlis.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_perlis_selected"
+		texturefile = "gfx/interface/malaysian_independence/perlis_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_kedah"
+		texturefile = "gfx/interface/malaysian_independence/kedah.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_kedah_selected"
+		texturefile = "gfx/interface/malaysian_independence/kedah_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_penang"
+		texturefile = "gfx/interface/malaysian_independence/penang.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_penang_selected"
+		texturefile = "gfx/interface/malaysian_independence/penang_selected.dds"
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_perak"
+		texturefile = "gfx/interface/malaysian_independence/perak.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_perak_selected"
+		texturefile = "gfx/interface/malaysian_independence/perak_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_dinding"
+		texturefile = "gfx/interface/malaysian_independence/dinding.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_dinding_selected"
+		texturefile = "gfx/interface/malaysian_independence/dinding_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_kelantan_selected"
+		texturefile = "gfx/interface/malaysian_independence/kelantan_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_kelantan"
+		texturefile = "gfx/interface/malaysian_independence/kelantan.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_terengganu_selected"
+		texturefile = "gfx/interface/malaysian_independence/terengganu_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_terengganu"
+		texturefile = "gfx/interface/malaysian_independence/terengganu.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_pahang_selected"
+		texturefile = "gfx/interface/malaysian_independence/pahang_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_pahang"
+		texturefile = "gfx/interface/malaysian_independence/pahang.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_selangor_selected"
+		texturefile = "gfx/interface/malaysian_independence/selangor_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_selangor"
+		texturefile = "gfx/interface/malaysian_independence/selangor.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_negrisembilan_selected"
+		texturefile = "gfx/interface/malaysian_independence/negrisembilan_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysian_independence_negrisembilan"
+		texturefile = "gfx/interface/malaysian_independence/negrisembilan.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysia_independence_malacca"
+		texturefile = "gfx/interface/malaysian_independence/malacca.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysia_independence_malacca_selected"
+		texturefile = "gfx/interface/malaysian_independence/malacca_selected.dds"
+		transparencecheck = yes
+	}
+	
+	spriteType = {
+		name = "GFX_r56_malaysia_independence_johor"
+		texturefile = "gfx/interface/malaysian_independence/johor.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysia_independence_johor_selected"
+		texturefile = "gfx/interface/malaysian_independence/johor_selected.dds"
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysia_independence_singapore"
+		texturefile = "gfx/interface/malaysian_independence/singapore.dds"
+		noOfFrames = 7
+		transparencecheck = yes
+	}
+
+	spriteType = {
+		name = "GFX_r56_malaysia_independence_singapore_selected"
+		texturefile = "gfx/interface/malaysian_independence/singapore_selected.dds"
+		transparencecheck = yes
+	}
+	
+}

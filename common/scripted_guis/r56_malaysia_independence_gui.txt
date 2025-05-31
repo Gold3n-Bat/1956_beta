@@ -1,0 +1,135 @@
+scripted_gui = {
+	r56_malaysia_independence_gui = {
+		context_type = decision_category
+		window_name = "r56_malaysia_independence"
+
+		visible = {
+			original_tag = MAL
+		}
+
+		properties = {
+			r56_malaysian_independence_perlis = {
+				frame = r56_malaysian_independence_perlis_frame
+			}
+			r56_malaysian_independence_kedah = {
+				frame = r56_malaysian_independence_kedah_frame
+			}
+			r56_malaysian_independence_penang = {
+				frame = r56_malaysian_independence_penang_frame
+			}
+			r56_malaysian_independence_perak = {
+				frame = r56_malaysian_independence_perak_frame
+			}
+			r56_malaysian_independence_dinding = {
+				frame = r56_malaysian_independence_dinding_frame
+			}
+			r56_malaysian_independence_kelantan = {
+				frame = r56_malaysian_independence_kelantan_frame
+			}
+			r56_malaysian_independence_terengganu = {
+				frame = r56_malaysian_independence_terengganu_frame
+			}
+			r56_malaysian_independence_pahang = {
+				frame = r56_malaysian_independence_pahang_frame
+			}
+			r56_malaysian_independence_selangor = {
+				frame = r56_malaysian_independence_selangor_frame
+			}
+			r56_malaysian_independence_negrisembilan = {
+				frame = r56_malaysian_independence_negrisembilan_frame
+			}
+			r56_malaysian_independence_malacca = {
+				frame = r56_malaysian_independence_malacca_frame
+			}
+			r56_malaysia_independence_johor = {
+				frame = r56_malaysia_independence_johor_frame
+			}
+			r56_bundeslaender_bar = {
+				frame = r56_bundeslaender_balance
+			}
+			r56_bundeslaender_position_marker = {
+				x = r56_bundeslaender_marker
+			}
+			
+		}
+
+		triggers = {
+			r56_malaysian_independence_perlis_selected_visible = {
+				check_variable = { AUS_selected_state = 0 }
+			}
+			r56_malaysian_independence_kedah_selected_visible = {
+				check_variable = { AUS_selected_state = 1 }
+			}
+			r56_malaysian_independence_penang_selected_visible = {
+				check_variable = { AUS_selected_state = 2 }
+			}
+			r56_malaysian_independence_perak_selected_visible = {
+				check_variable = { AUS_selected_state = 3 }
+			}
+			r56_malaysian_independence_dinding_selected_visible = {
+				check_variable = { AUS_selected_state = 4 }
+			}
+			r56_malaysian_independence_kelantan_selected_visible = {
+				check_variable = { AUS_selected_state = 5 }
+			}
+			r56_malaysian_independence_terengganu_selected_visible = {
+				check_variable = { AUS_selected_state = 6 }
+			}
+			r56_malaysian_independence_pahang_selected_visible = {
+				check_variable = { AUS_selected_state = 7 }
+			}
+			r56_malaysian_independence_selangor_selected_visible = {
+				check_variable = { AUS_selected_state = 8 }
+			}
+			r56_malaysian_independence_negrisembilan_selected_visible = {
+				check_variable = { AUS_selected_state = 9 }
+			}
+			r56_malaysian_independence_malacca_selected_visible = {
+				check_variable = { AUS_selected_state = 8 }
+			}
+			r56_malaysian_independence_johor_selected_visible = {
+				check_variable = { AUS_selected_state = 9 }
+			}
+		}
+
+		effects = {
+			
+			r56_malaysian_independence_perlis_click = {
+				set_variable = { AUS_selected_state = 0 }
+			}
+			r56_malaysian_independence_kedah_click = {
+				set_variable = { AUS_selected_state = 1 }
+			}
+			r56_malaysian_independence_penang_click = {
+				set_variable = { AUS_selected_state = 9 }
+			}
+			r56_malaysian_independence_perak_click = {
+				set_variable = { AUS_selected_state = 2 }
+			}
+			r56_malaysian_independence_dinding_click = {
+				set_variable = { AUS_selected_state = 3 }
+			}
+			r56_malaysian_independence_kelantan_click = {
+				set_variable = { AUS_selected_state = 4 }
+			}
+			r56_malaysian_independence_terengganu_click = {
+				set_variable = { AUS_selected_state = 5 }
+			}
+			r56_malaysian_independence_pahang_click = {
+				set_variable = { AUS_selected_state = 6 }
+			}
+			r56_malaysian_independence_selangor_click = {
+				set_variable = { AUS_selected_state = 7 }
+			}
+			r56_malaysian_independence_negrisembilan_click = {
+				set_variable = { AUS_selected_state = 8 }
+			}
+			r56_malaysian_independence_malacca_click = {
+				set_variable = { AUS_selected_state = 8 }
+			}
+			r56_malaysian_independence_johor_click = {
+				set_variable = { AUS_selected_state = 9 }
+			}
+		}
+	}
+}
