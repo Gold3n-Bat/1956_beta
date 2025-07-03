@@ -80,27 +80,84 @@ if = {
 set_convoys = 10
 
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = democratic
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	neutrality = 80
-	democratic = 20
+	neutrality = 24
+	democratic = 70
+	fascism = 5
+	communism = 1
 }
 
-create_country_leader = {
-	name = "Yuri Hlushko-Mova"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_4.dds"
-	expire = "1965.1.1"
-	ideology = conservatism
-}
+add_ideas = low_economic_mobilisation
+add_ideas = limited_exports
+add_ideas = GUK_difficult_coexistence
+add_ideas = GUK_cossack_tradition
+add_ideas = GUK_heavy_unused_industry
+add_ideas = GUK_illegitimate_state
+add_ideas = GUK_illiterate_population
 
-create_country_leader = {
-	name = "Pavlo Yakhno"
-	picture = "gfx/leaders/r56_generic/r56_portrait_commonwealth_generic_land_5.dds"
-	expire = "1965.1.1"
-	ideology = conservatism_n
-}
+### =================================================================> Leaders
+### ======================================================> Democratic
+recruit_character = GUK_yurii_hlushko
+### ======================================================> Communism
+recruit_character = GUK_mykhailo_vasilyevich_semenko #Communist Ukrainian Futurism (Communist Side with Soviet Union)
+recruit_character = GUK_martemyan_nikitich_ryutin #Communist Anti-Stalin Right Opposition
+### ======================================================> Fascism
+recruit_character = GUK_grigory_kupetsky
+### ======================================================> Neutrality
+recruit_character = GUK_yakhno_pavel_pavlovich
+### ================================> Monarchism
+recruit_character = GUK_boris_rostislavovich_khreshchatytsky #Available Hetman or a Democratic Leader #cavalry
+recruit_character = GUK_grigory_semyonov #Main Hetman
+### =================================================================> Advisors
+### ======================================================> Military
+### ================================> Army, Air & Navy
+recruit_character = GUK_petro_fedorovich #army
+recruit_character = GUK_andriy_stepanovich #navy
+### ================================> High Command
+recruit_character = GUK_trokhym_vasilyevich_von_vicken #artillery officer
+recruit_character = GUK_grovoyi_petro_ivanovich # Supply & Trains
+recruit_character = GUK_petro_gavrylovych_vintskovsky #Trucks & Mechanized
+recruit_character = GUK_borys_ivanovich_voblyi #field_controller
+recruit_character = GUK_hnat_zynoviovych_kyslysya #submarines
+### ======================================================> Political
+recruit_character = GUK_stephan_prokopovych_prant #Eleceted Treasurer
+recruit_character = GUK_yakovenko_venedikt #Far Eastern rada
+recruit_character = GUK_volodymyr_nestrovych #Trade & Economy
+recruit_character = GUK_ivan_fedorovych_smulsky #Economist
+recruit_character = GUK_yukhym_oleksandrovych_kysilov #Radio & Transport
+recruit_character = GUK_dmytro_mykhailovych #Secretary for Public Affairs
+recruit_character = GUK_vitaliy_apollonovich_zhuk #Educational Affairs
+recruit_character = GUK_oinsym_stypak #Head of Union of Ukrainian Fuguitives 
+### ======================================================> Democratic
+recruit_character = GUK_ivan_p_alslavskyi #Founder of Sich & Harbin Colony
+recruit_character = GUK_ivan_svit #journalist
+recruit_character = GUK_danylenko_fedir_fedotovych #technocrat #available scientist 
+recruit_character = GUK_vasyl_mefodiyovych_tkalich #Ukrainian Central Rada
+### ======================================================> Communism
+recruit_character = GUK_ivan_fedorovich_myroshnychenko #socialist_revolutionary (Radical Socialism)
+recruit_character = GUK_lukyan_rodionvich
+recruit_character = GUK_grigory_pylypovch #Socialist party of RSDLP, lived in the soviet union, was disliked
+recruit_character = GUK_mykola_kostyantynovich_novtskiy # socialist member of the RSDLP
+recruit_character = GUK_herutsky_evdok #Elected council of workers' (might be a high command)
+recruit_character = GUK_kost_kindratovich_andruschenko #Cossack joined the Vladivostok Soviet Workers - Mainly High Command
+recruit_character = GUK_porfiry_ivanovich_sikan #Ministry of Social Welfare
+recruit_character = GUK_ioanikiy_ivanovych_shymonovych #Head of Statistics department of agricultural_cooperative_center
+#recruit_character = GUK_gordiy_petrovych #Ukrainian Worker's Group -Maybe? 
+### ======================================================> Fascism
+recruit_character = GUK_gregory_filda 
+recruit_character = GUK_boris_kurkci
+recruit_character = GUK_ivan_bahrianyi #writer, translator
+### ======================================================> Neutrality
+recruit_character = GUK_roman_romanovych # Will be used as a soldier.
+recruit_character = GUK_abram_iosifovich_kaufman #pediatrician zionist movement
+
+recruit_character = GUK_volodymyr_vasyliovych #Free Cossacks - Water Mechanic & Dentist - High Command
+recruit_character = GUK_venedik_yakovenko
+
+
